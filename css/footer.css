@@ -1,0 +1,75 @@
+.bg-footer {
+  background: #252641;
+}
+
+.Logo {
+  width: 114px;
+  /* height: 83px; */
+}
+
+.text-footer {
+  color: #fff;
+  border-left: 1px solid #626381;
+  padding-left: 40px;
+  width: 200px;
+}
+
+.text2-footer {
+  color: #b2b3cf;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+.text3-footer{
+  color: #b2b3cf;
+  border-left: 1px solid #626381;
+  padding-left: 20px;
+}
+
+.footer-input {
+  background-color: #252641;
+  border: 1px solid;
+  color: #83839a;
+  border-radius: 80px;
+  width: 300px;
+  height: 40px;
+  padding-left: 20px;
+}
+
+.Subscribe-email{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer-icon{
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+
+.list{
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.footer-info{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.button-subscribe{
+  background-color: #49bbbd;
+  border: 1px solid #49bbbd;
+  color: #fff;
+  border-radius: 80px;
+  width: 130px;
+  height: 40px;
+}
