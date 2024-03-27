@@ -1,6 +1,33 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect, useReducer } from 'react'
 import Cart from "../components/Cart";
 import axios from 'axios';
+
+const reducer = (state, action) => {
+    switch(action?.type){
+        case "START":
+            return {
+                ...state,
+                message: "START Loading"
+            }
+        case "LOADING":
+            return{
+                ...state,
+                message: "Loading data..."
+            }
+        case "LOADED":
+            return{
+                ...state,
+                message: "Loaded data"
+            }
+        case "ERROR":
+            return{
+                ...state,
+                message: "Error while loading data"
+            }
+        default:
+            throw new Error("Unknown type")
+    }
+}
 
 const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
     let array = [];
@@ -26,8 +53,10 @@ const Home = () => {
     const [Products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [ProductsPerPage] = useState(3);
+    const [state, dispatch] = useReducer(reducer, {message: "Start"})
 
     const RequestGet = async (path) => {
+        dispatch({type: "LOADING"})
         path = "http://localhost:9000" + path
         await axios.get(path).then(response => {
             const data = response.data;
@@ -49,12 +78,17 @@ const Home = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     useEffect(() => {
+        dispatch({type: "START"})
         try {
             RequestGet("/product")
+            dispatch({type: "LOADED"})
         } catch (error) {
             alert(error?.message);
+            dispatch({type: "ERROR"})
         }
     }, [])
+
+    console.log(state?.message);
 
     const product = Products
         .slice(indexOfFirstProducts, indexOfLastProducts)
