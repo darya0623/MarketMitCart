@@ -6,7 +6,7 @@
   "homepage": "https://khaetbekit.github.io/Market/",
   "scripts": {
     "start": "vite",
-    "dev": "concurrently \"vite\" \"npx json-server -w db/db.json -p=9000\"",
+    "dev": "concurrently \"vite\" \"npx json-server --watch db/db.json -p=9000\"",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
